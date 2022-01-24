@@ -1,23 +1,12 @@
-<template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
-  <s-button type="basic" size="big" icon="cloud">111</s-button>
-</template>
-
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+<script setup>
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import { SButton } from './Button';
-
-@Options({
-  components: {
-    HelloWorld,
-    SButton,
-  },
-})
-export default class App extends Vue {}
 </script>
 
+<template>
+  <s-button type="basic" size="big" icon="cloud">111</s-button>
+</template>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

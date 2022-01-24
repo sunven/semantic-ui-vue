@@ -1,10 +1,3 @@
-<template>
-  <button :class="className" @click="onClick">
-    <i v-if="icon" class="icon" :class="icon"></i>
-    <slot></slot>
-  </button>
-</template>
-
 <script setup lang="ts">
 import { defineProps, computed, defineEmits } from 'vue';
 const props = defineProps({
@@ -34,5 +27,12 @@ const className = computed(() => {
   return name;
 });
 </script>
+
+<template>
+  <button :class="className" @click="onClick">
+    <i v-if="icon" class="icon" :class="icon"></i>
+    <slot></slot>
+  </button>
+</template>
 
 <style scoped></style>
