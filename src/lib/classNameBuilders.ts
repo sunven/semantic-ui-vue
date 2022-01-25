@@ -1,5 +1,7 @@
 // import { numberToWord } from './numberToWord'
 
+import { numberToWord } from '.';
+
 /*
  * There are 3 prop patterns used to build up the className for a component.
  * Each utility here is meant for use in a classnames() argument.
@@ -19,7 +21,7 @@
  * <Label tag />
  * <div class="ui tag label"></div>
  */
-export const useKeyOnly = (val, key) => val && key;
+export const useKeyOnly = (val: any, key: string) => val && key;
 
 /**
  * Props that require both a key and value to create a className.
@@ -30,7 +32,7 @@ export const useKeyOnly = (val, key) => val && key;
  * <Label corner='left' />
  * <div class="ui left corner label"></div>
  */
-export const useValueAndKey = (val, key) => val && val !== true && `${val} ${key}`;
+export const useValueAndKey = (val: any, key: string) => val && val !== true && `${val} ${key}`;
 
 /**
  * Props whose key will be used in className, or value and key.
@@ -45,7 +47,7 @@ export const useValueAndKey = (val, key) => val && val !== true && `${val} ${key
  * <Label pointing='left' />
  * <div class="ui left pointing label"></div>
  */
-export const useKeyOrValueAndKey = (val, key) => val && (val === true ? key : `${val} ${key}`);
+export const useKeyOrValueAndKey = (val: any, key: string) => val && (val === true ? key : `${val} ${key}`);
 
 //
 // Prop to className exceptions
@@ -63,14 +65,14 @@ export const useKeyOrValueAndKey = (val, key) => val && (val === true ? key : `$
  * <div class="mobile only row"></div>
  * <div class="mobile only tablet only row"></div>
  */
-export const useMultipleProp = (val, key) => {
+export const useMultipleProp = (val: any, key: string) => {
   if (!val || val === true) return null;
 
   return val
     .replace('large screen', 'large-screen')
     .replace(/ vertically/g, '-vertically')
     .split(' ')
-    .map(prop => `${prop.replace('-', ' ')} ${key}`)
+    .map((prop: string) => `${prop.replace('-', ' ')} ${key}`)
     .join(' ');
 };
 
@@ -87,7 +89,7 @@ export const useMultipleProp = (val, key) => {
  * <Container textAlign='left' />
  * <div class="ui left aligned container"></div>
  */
-export const useTextAlignProp = val => (val === 'justified' ? 'justified' : useValueAndKey(val, 'aligned'));
+export const useTextAlignProp = (val: any) => (val === 'justified' ? 'justified' : useValueAndKey(val, 'aligned'));
 
 /**
  * The "verticalAlign" prop follows the useValueAndKey.
@@ -98,7 +100,7 @@ export const useTextAlignProp = val => (val === 'justified' ? 'justified' : useV
  * <Grid verticalAlign='middle' />
  * <div class="ui middle aligned grid"></div>
  */
-export const useVerticalAlignProp = val => useValueAndKey(val, 'aligned');
+export const useVerticalAlignProp = (val: any) => useValueAndKey(val, 'aligned');
 
 /**
  * Create "X", "X wide" and "equal width" classNames.
@@ -121,7 +123,7 @@ export const useVerticalAlignProp = val => useValueAndKey(val, 'aligned');
  * <Grid columns={4} />
  * <div class="ui four column grid"></div>
  */
-export const useWidthProp = (val, widthClass = '', canEqual = false) => {
+export const useWidthProp = (val: string | number, widthClass = '', canEqual = false) => {
   if (canEqual && val === 'equal') {
     return 'equal width';
   }

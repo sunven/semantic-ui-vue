@@ -6,6 +6,10 @@ const path = require('path');
 export default defineConfig({
   plugins: [vue()],
   resolve: {
-    alias: { '/@': path.resolve(__dirname, 'src') },
+    alias: { '@': path.resolve(__dirname, 'src') },
+  },
+  esbuild: {
+    jsxFactory: 'h',
+    jsxFragment: 'Fragment',
   },
 });

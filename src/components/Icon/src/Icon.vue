@@ -1,35 +1,36 @@
 <template>
-  <i v-bind="{ ...rest, ...ariaOptions }" :class="classes" @click="handleClick" />
+  <i v-bind="{ ...rest, ...ariaOptions }" :class="classes" @click="handleClick"></i>
 </template>
 
 <script lang="ts" setup>
-import { useKeyOnly, useKeyOrValueAndKey, useValueAndKey } from '@/lib';
-import type { IconProps } from './IconType';
-interface IconProps1 extends IconProps {}
-const props = withDefaults(defineProps<IconProps1>(), {});
+import { isNil, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, getUnhandledProps } from '@/lib';
+import { iconProps } from './Props';
+import clsx from 'clsx';
+
+const props = defineProps(iconProps);
 
 const getIconAriaOptions = () => {
-  const ariaOptions: { [key: string]: string } = {};
+  const ariaOptions: { [key: string]: string | undefined } = {};
   const { 'aria-label': ariaLabel, 'aria-hidden': ariaHidden } = props;
 
-  if (_.isNil(ariaLabel)) {
+  if (isNil(ariaLabel)) {
     ariaOptions['aria-hidden'] = 'true';
   } else {
     ariaOptions['aria-label'] = ariaLabel;
   }
 
-  if (!_.isNil(ariaHidden)) {
+  if (!isNil(ariaHidden)) {
     ariaOptions['aria-hidden'] = ariaHidden;
   }
 
   return ariaOptions;
 };
 
-const rest = getUnhandledProps(Icon, this.props);
-
+const rest = getUnhandledProps(iconProps, props);
 const ariaOptions = getIconAriaOptions();
+
 const { bordered, circular, className, color, corner, disabled, fitted, flipped, inverted, link, loading, name, rotated, size } = props;
-const classes = [
+const classes = clsx([
   color,
   name,
   size,
@@ -45,18 +46,16 @@ const classes = [
   useValueAndKey(rotated, 'rotated'),
   'icon',
   className,
-];
+]);
 
 const emit = defineEmits(['click']);
-const handleClick = e => {
+const handleClick = (e: MouseEvent) => {
   const { disabled } = props;
-
   if (disabled) {
     e.preventDefault();
     return;
   }
-
-  emit('click');
+  emit('click', e);
 };
 </script>
 

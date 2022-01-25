@@ -2,10 +2,12 @@ lockfileVersion: 5.3
 
 specifiers:
   '@vitejs/plugin-vue': ^2.0.0
+  clsx: ^1.1.1
   vite: ^2.7.2
   vue: ^3.2.25
 
 dependencies:
+  clsx: registry.nlark.com/clsx/1.1.1
   vue: registry.npmmirror.com/vue/3.2.29
 
 devDependencies:
@@ -13,6 +15,13 @@ devDependencies:
   vite: registry.npmmirror.com/vite/2.7.13
 
 packages:
+
+  registry.nlark.com/clsx/1.1.1:
+    resolution: {integrity: sha1-mLMTT5q73yOyZjSRrOE8XAOnMYg=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/clsx/download/clsx-1.1.1.tgz}
+    name: clsx
+    version: 1.1.1
+    engines: {node: '>=6'}
+    dev: false
 
   registry.nlark.com/function-bind/1.1.1:
     resolution: {integrity: sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/function-bind/download/function-bind-1.1.1.tgz}
