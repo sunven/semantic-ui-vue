@@ -2,33 +2,35 @@
 import { doesNodeContainClick, getUnhandledProps, useKeyOnly, useVerticalAlignProp } from '@/lib';
 import clsx from 'clsx';
 import _ from 'lodash';
-import { onMounted, onUpdated, ref, watch } from 'vue';
+import { onMounted, ref, watch, useAttrs } from 'vue';
 import { dimmerInnerProps } from './Props';
 
 const props = defineProps(dimmerInnerProps);
-const containerRef = ref(null);
-const contentRef = ref(null);
+const containerRef = ref<HTMLElement>();
+const contentRef = ref<HTMLElement>();
 
-const { active, className, disabled, inverted, page, simple, verticalAlign } = props;
+let { active, className, disabled, inverted, page, simple, verticalAlign, onClickOutside } = props;
 onMounted(() => {
-  console.log(1, containerRef);
-
   toggleStyles(active);
+  console.log('onClickOutside', onClickOutside);
+  onClickOutside('a');
+  // $emit('onClickOutside', an);
 });
 
 watch(
   () => active,
   (newValue, oldValue) => {
+    console.log(1);
+
     if (oldValue !== newValue) toggleStyles(newValue);
   }
 );
 
 const handleClick = (e: MouseEvent) => {
-  const contentRef = contentRef;
+  const dom = contentRef.value;
 
   _.invoke(props, 'onClick', e, props);
-
-  if (contentRef && contentRef !== e.target && doesNodeContainClick(contentRef, e)) {
+  if (dom && dom !== e.target && doesNodeContainClick(dom, e)) {
     return;
   }
 
@@ -36,17 +38,12 @@ const handleClick = (e: MouseEvent) => {
 };
 
 const toggleStyles = (active: boolean) => {
-  console.log('toggleStyles');
-
-  console.log(2, containerRef);
-
-  const containerRef = containerRef;
-
-  if (!containerRef || !containerRef.style) return;
+  const dom = containerRef.value;
+  if (!dom || !dom.style) return;
   if (active) {
-    containerRef.style.setProperty('display', 'flex', 'important');
+    dom.style.setProperty('display', 'flex', 'important');
   } else {
-    containerRef.style.removeProperty('display');
+    dom.style.removeProperty('display');
   }
 };
 
@@ -62,10 +59,6 @@ const classes = clsx(
   className
 );
 const rest = getUnhandledProps(dimmerInnerProps, props);
-
-defineExpose({
-  containerRef,
-});
 </script>
 <template>
   <div ref="containerRef" v-bind="rest" :class="classes" @click="handleClick">
