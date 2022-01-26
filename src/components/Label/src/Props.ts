@@ -1,6 +1,5 @@
 import { COLORS, SIZES } from '@/@types/sui';
 import { PropType } from 'vue';
-let circularRequired = false;
 export const labelProps = {
   /** An element type to render as (string or function). */
   // as: PropTypes.elementType,
@@ -20,7 +19,6 @@ export const labelProps = {
   /** A label can be circular. */
   circular: {
     type: Boolean,
-    required: circularRequired,
   },
 
   /** Additional classes. */
@@ -41,16 +39,6 @@ export const labelProps = {
   /** Formats the label as a dot. */
   empty: {
     type: Boolean,
-    validator: (value: any) => {
-      console.log(1, value);
-
-      if (value) {
-        circularRequired = true;
-      } else {
-        circularRequired = false;
-      }
-      return value;
-    },
   },
 
   /** Float above another element in the upper right corner. */

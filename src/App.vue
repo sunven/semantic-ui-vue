@@ -5,6 +5,8 @@ import { SButton } from './components/Button';
 import { SIcon, SIconGroup } from './components/Icon';
 import { SSegment } from './components/Segment';
 import { SLabel } from './components/Label';
+import { SDimmer } from './components/Dimmer';
+console.log(typeof SLabel.create);
 </script>
 
 <template>
@@ -16,7 +18,11 @@ import { SLabel } from './components/Label';
     <s-icon name="user" />
   </s-icon-group>
   <s-segment></s-segment>
-  <s-label empty>11</s-label>
+  <!-- <s-label icon="home"></s-label> -->
+  <s-dimmer active>
+    <p>1111</p>
+    <p>222</p>
+  </s-dimmer>
 </template>
 <style>
 #app {
