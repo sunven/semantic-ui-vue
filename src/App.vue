@@ -11,6 +11,9 @@ const active = ref(true);
 const onClickOutside = function () {
   active.value = false;
 };
+const onRemove = () => {
+  console.log(1);
+};
 </script>
 
 <template>
@@ -22,7 +25,7 @@ const onClickOutside = function () {
     <s-icon name="user" />
   </s-icon-group> -->
   <s-segment></s-segment>
-  <!-- <s-label icon="home"></s-label> -->
+  <s-label icon="home" removeIcon="delete" :onRemove="onRemove">1233</s-label>
   <SDimmerDimmable :dimmed="active">
     <s-dimmer :active="active" :onClickOutside="onClickOutside"> </s-dimmer>
     <p>1111</p>

@@ -1,7 +1,3 @@
-<template>
-  <i v-bind="{ ...rest, ...ariaOptions }" :class="classes" @click="handleClick"></i>
-</template>
-
 <script lang="ts" setup>
 import { isNil, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, getUnhandledProps } from '@/lib';
 import { iconProps } from './Props';
@@ -58,5 +54,9 @@ const handleClick = (e: MouseEvent) => {
   emit('click', e);
 };
 </script>
+
+<template>
+  <i v-bind="{ ...rest, ...ariaOptions }" :class="classes" @click="handleClick"></i>
+</template>
 
 <style lang="scss" scoped></style>

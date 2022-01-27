@@ -4,11 +4,11 @@ import { labelProps } from './Props';
 import { createComp, useKeyOnly, useKeyOrValueAndKey, useValueAndKey } from '@/lib';
 import { SIcon } from '../../Icon';
 import { SImage } from '../../Image';
+import { SLabelDetail } from '../';
 import _ from 'lodash';
-// const props = defineProps(labelProps);
 
 const Label = defineComponent({
-  components: { SIcon },
+  // components: { SIcon },
   props: labelProps,
   setup(props) {
     const pointingClass = computed(
@@ -44,16 +44,25 @@ const Label = defineComponent({
       if (onClick) onClick(e, props);
     };
 
-    const handleIconOverrides = (predefinedProps: any) => ({
-      onClick: (e: MouseEvent) => {
-        _.invoke(predefinedProps, 'onClick', e);
-        _.invoke(props, 'onRemove', e, props);
-      },
-    });
-    return { classes, handleClick };
+    const handleIconOnClick = (predefinedProps: any) => (e: MouseEvent) => {
+      _.invoke(predefinedProps, 'onClick', e);
+      _.invoke(props, 'onRemove', e, props);
+    };
+
+    const createIcon = (icon: any) => {
+      if (typeof icon === 'string') {
+        return createComp(SIcon, icon, (val: any) => ({ name: val, onClick: handleIconOnClick(icon) }));
+      }
+      if (typeof icon === 'object') {
+        icon.onClick = handleIconOnClick(icon);
+        return createComp(SIcon, icon);
+      }
+    };
+
+    return { classes, handleClick, createIcon };
   },
   render() {
-    const { $slots, classes, removeIcon, icon, image, onRemove } = this;
+    const { $slots, classes, removeIcon, icon, image, onRemove, detail, createIcon } = this;
     if (_.isNil($slots.default)) {
       return <div class={classes} onClick={this.handleClick}></div>;
     }
@@ -63,13 +72,9 @@ const Label = defineComponent({
       <div class={classes} onClick={this.handleClick}>
         {createComp(SIcon, icon, (val: any) => ({ name: val }))}
         {createComp(SImage, image, (val: any) => ({ src: val }))}
-        <slot></slot>
-        {/* {LabelDetail.create(detail, { autoGenerateKey: false })} */}
-        {onRemove &&
-          Icon.create(removeIconShorthand, {
-            autoGenerateKey: false,
-            overrideProps: this.handleIconOverrides,
-          })}
+        {$slots.default()}
+        {createComp(SLabelDetail, detail)}
+        {onRemove && createIcon(removeIconShorthand)}
       </div>
     );
   },
