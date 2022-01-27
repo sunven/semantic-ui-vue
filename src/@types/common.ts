@@ -1,4 +1,4 @@
 /**
  * ClickEvent
  */
-export type ClickEvent = (event: MouseEvent, data: object) => void;
+export type ClickEvent = (event: MouseEvent, data: object) => void

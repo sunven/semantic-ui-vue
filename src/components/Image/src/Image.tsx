@@ -1,10 +1,10 @@
-import { useKeyOnly, useKeyOrValueAndKey, useValueAndKey, useVerticalAlignProp, partitionHTMLProps, htmlImageProps, createComp } from '@/lib';
-import clsx from 'clsx';
-import { h, defineComponent, computed } from 'vue';
-import { SLabel } from '../../Label';
-import { imageProps } from './Props';
-import { SDimmer } from '../../Dimmer';
-import _ from 'lodash';
+import { useKeyOnly, useKeyOrValueAndKey, useValueAndKey, useVerticalAlignProp, partitionHTMLProps, htmlImageProps, createComp } from '@/lib'
+import clsx from 'clsx'
+import { h, defineComponent, computed } from 'vue'
+import { SLabel } from '../../Label'
+import { imageProps } from './Props'
+import { SDimmer } from '../../Dimmer'
+import _ from 'lodash'
 export default defineComponent({
   props: imageProps,
   setup(props) {
@@ -27,16 +27,16 @@ export default defineComponent({
         'image',
         props.className
       )
-    );
-    const [imgTagProps, rootProps] = partitionHTMLProps(props, { htmlProps: htmlImageProps });
+    )
+    const [imgTagProps, rootProps] = partitionHTMLProps(props, { htmlProps: htmlImageProps })
 
-    return { rootProps, imgTagProps, classes };
+    return { rootProps, imgTagProps, classes }
   },
   render() {
-    const { dimmer, href, label, wrapped, $slots, rootProps, imgTagProps, classes } = this;
+    const { dimmer, href, label, wrapped, $slots, rootProps, imgTagProps, classes } = this
 
     if (_.isNil(dimmer) && _.isNil(label) && _.isNil(wrapped) && _.isNil($slots.default)) {
-      return <img {...rootProps} {...imgTagProps} class={classes} />;
+      return <img {...rootProps} {...imgTagProps} class={classes} />
     }
     return (
       <a {...rootProps} class={classes} href={href}>
@@ -44,6 +44,6 @@ export default defineComponent({
         {createComp(SLabel, label)}
         <img {...imgTagProps} />
       </a>
-    );
+    )
   },
-});
+})

@@ -1,5 +1,5 @@
-import { COLORS, SIZES } from '@/@types/sui';
-import { PropType } from 'vue';
+import { COLORS, SIZES } from '@/@types/sui'
+import { PropType } from 'vue'
 export const labelProps = {
   /** An element type to render as (string or function). */
   // as: PropTypes.elementType,
@@ -86,7 +86,7 @@ export const labelProps = {
 
   /** A label can appear as a tag. */
   tag: Boolean,
-};
+}
 
 export const labelDetailProps = {
   /** An element type to render as (string or function). */
@@ -100,7 +100,7 @@ export const labelDetailProps = {
 
   /** Shorthand for primary content. */
   // content: customPropTypes.contentShorthand,
-};
+}
 
 export const labelGroupProps = {
   /** An element type to render as (string or function). */
@@ -126,4 +126,4 @@ export const labelGroupProps = {
 
   /** Label group can share tag formatting. */
   tag: Boolean,
-};
+}

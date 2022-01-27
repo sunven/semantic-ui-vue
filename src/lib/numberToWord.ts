@@ -15,7 +15,7 @@ export const numberToWordMap: { [key: string | number]: string } = {
   14: 'fourteen',
   15: 'fifteen',
   16: 'sixteen',
-};
+}
 
 /**
  * Return the number word for numbers 1-16.
@@ -25,10 +25,10 @@ export const numberToWordMap: { [key: string | number]: string } = {
  * @returns {string}
  */
 export function numberToWord(value: string | number): string {
-  const type = typeof value;
+  const type = typeof value
   if (type === 'string' || type === 'number') {
-    return numberToWordMap[value] || (value as string);
+    return numberToWordMap[value] || (value as string)
   }
 
-  return '';
+  return ''
 }

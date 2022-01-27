@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue'
 const props = defineProps({
   type: String,
   icon: String,
   size: String,
-});
+})
 
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click'])
 const onClick = () => {
-  emit('click');
-};
+  emit('click')
+}
 
-const defaultClassName = ['ui', 'button'];
+const defaultClassName = ['ui', 'button']
 
 const className = computed(() => {
-  let name = [...defaultClassName];
+  const name = [...defaultClassName]
   if (props.type) {
-    name.push(props.type);
+    name.push(props.type)
   }
   if (props.icon) {
-    name.push('icon');
+    name.push('icon')
   }
   if (props.size) {
-    name.push(props.size);
+    name.push(props.size)
   }
-  return name;
-});
+  return name
+})
 </script>
 
 <template>

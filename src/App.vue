@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { SButton } from './components/Button';
-import { SIcon, SIconGroup } from './components/Icon';
-import { SSegment } from './components/Segment';
-import { SLabel } from './components/Label';
-import { SDimmer, SDimmerDimmable } from './components/Dimmer';
-import { ref, onMounted } from 'vue';
-const active = ref(true);
+import { SButton } from './components/Button'
+import { SIcon, SIconGroup } from './components/Icon'
+import { SSegment } from './components/Segment'
+import { SLabel } from './components/Label'
+import { SDimmer, SDimmerDimmable } from './components/Dimmer'
+import { ref, onMounted } from 'vue'
+const active = ref(true)
 const onClickOutside = function () {
-  active.value = false;
-};
+  active.value = false
+}
 const onRemove = () => {
-  console.log(1);
-};
+  console.log(1)
+}
 </script>
 
 <template>
@@ -25,9 +25,9 @@ const onRemove = () => {
     <s-icon name="user" />
   </s-icon-group> -->
   <s-segment></s-segment>
-  <s-label icon="home" removeIcon="delete" :onRemove="onRemove">1233</s-label>
+  <s-label icon="home" remove-icon="delete" :on-remove="onRemove">1233</s-label>
   <SDimmerDimmable :dimmed="active">
-    <s-dimmer :active="active" :onClickOutside="onClickOutside"> </s-dimmer>
+    <s-dimmer :active="active" :on-click-outside="onClickOutside"> </s-dimmer>
     <p>1111</p>
     <p>222</p>
   </SDimmerDimmable>

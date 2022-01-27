@@ -1,61 +1,40 @@
 <script lang="ts" setup>
-import { useKeyOnly, useKeyOrValueAndKey, useTextAlignProp, useValueAndKey, getUnhandledProps } from '@/lib';
-import clsx from 'clsx';
-import { segmentProps } from './Props';
-const props = defineProps(segmentProps);
-const {
-  attached,
-  basic,
-  circular,
-  className,
-  clearing,
-  color,
-  compact,
-  disabled,
-  floated,
-  inverted,
-  loading,
-  placeholder,
-  padded,
-  piled,
-  raised,
-  secondary,
-  size,
-  stacked,
-  tertiary,
-  textAlign,
-  vertical,
-} = props;
+import { useKeyOnly, useKeyOrValueAndKey, useTextAlignProp, useValueAndKey, getUnhandledProps } from '@/lib'
+import clsx from 'clsx'
+import { computed } from 'vue'
+import { segmentProps } from './Props'
+const props = defineProps(segmentProps)
 
-const classes = clsx(
-  'ui',
-  color,
-  size,
-  useKeyOnly(basic, 'basic'),
-  useKeyOnly(circular, 'circular'),
-  useKeyOnly(clearing, 'clearing'),
-  useKeyOnly(compact, 'compact'),
-  useKeyOnly(disabled, 'disabled'),
-  useKeyOnly(inverted, 'inverted'),
-  useKeyOnly(loading, 'loading'),
-  useKeyOnly(placeholder, 'placeholder'),
-  useKeyOnly(piled, 'piled'),
-  useKeyOnly(raised, 'raised'),
-  useKeyOnly(secondary, 'secondary'),
-  useKeyOnly(stacked, 'stacked'),
-  useKeyOnly(tertiary, 'tertiary'),
-  useKeyOnly(vertical, 'vertical'),
-  useKeyOrValueAndKey(attached, 'attached'),
-  useKeyOrValueAndKey(padded, 'padded'),
-  useTextAlignProp(textAlign),
-  useValueAndKey(floated, 'floated'),
-  'segment',
-  className
-);
-const rest = getUnhandledProps(segmentProps, props);
+const classes = computed(() =>
+  clsx(
+    'ui',
+    props.color,
+    props.size,
+    useKeyOnly(props.basic, 'basic'),
+    useKeyOnly(props.circular, 'circular'),
+    useKeyOnly(props.clearing, 'clearing'),
+    useKeyOnly(props.compact, 'compact'),
+    useKeyOnly(props.disabled, 'disabled'),
+    useKeyOnly(props.inverted, 'inverted'),
+    useKeyOnly(props.loading, 'loading'),
+    useKeyOnly(props.placeholder, 'placeholder'),
+    useKeyOnly(props.piled, 'piled'),
+    useKeyOnly(props.raised, 'raised'),
+    useKeyOnly(props.secondary, 'secondary'),
+    useKeyOnly(props.stacked, 'stacked'),
+    useKeyOnly(props.tertiary, 'tertiary'),
+    useKeyOnly(props.vertical, 'vertical'),
+    useKeyOrValueAndKey(props.attached, 'attached'),
+    useKeyOrValueAndKey(props.padded, 'padded'),
+    useTextAlignProp(props.textAlign),
+    useValueAndKey(props.floated, 'floated'),
+    'segment',
+    props.className
+  )
+)
 </script>
 <template>
-  <div :class="classes" v-bind="rest">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>

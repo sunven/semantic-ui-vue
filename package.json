@@ -6,7 +6,33 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "lintNofix": "eslint src --ext .ts,.tsx,.vue,.js,.jsx",
     "prettier": "prettier --write ."
+  },
+  "lint-staged": {
+    "_.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "_.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "_.tsx": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "_.vue": [
+      "prettier --parser=vue --write",
+      "eslint --fix"
+    ],
+    "_.css": [
+      "prettier --write"
+    ],
+    "_.md": [
+      "prettier --write --parser markdown --prose-wrap never",
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "clsx": "^1.1.1",
@@ -20,6 +46,7 @@
     "@vitejs/plugin-vue": "^2.0.0",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.1",

@@ -1,5 +1,5 @@
-import { COLORS, FLOATS, SIZES, TEXT_ALIGNMENTS } from '@/@types/sui';
-import { PropType } from 'vue';
+import { COLORS, FLOATS, SIZES, TEXT_ALIGNMENTS } from '@/@types/sui'
+import { PropType } from 'vue'
 
 export const segmentProps = {
   /** An element type to render as (string or function). */
@@ -73,7 +73,7 @@ export const segmentProps = {
 
   /** Formats content to be aligned vertically. */
   vertical: Boolean,
-};
+}
 
 export const segmentGroupProps = {
   /** An element type to render as (string or function). */
@@ -105,7 +105,7 @@ export const segmentGroupProps = {
 
   /** Formatted to show it contains multiple pages. */
   stacked: Boolean,
-};
+}
 
 export const segmentInlineProps = {
   /** An element type to render as (string or function). */
@@ -119,4 +119,4 @@ export const segmentInlineProps = {
 
   /** Shorthand for primary content. */
   // content: customPropTypes.contentShorthand,
-};
+}

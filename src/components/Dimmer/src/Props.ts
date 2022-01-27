@@ -1,5 +1,5 @@
-import { ClickEvent } from '@/@types/common';
-import { PropType } from 'vue';
+import { ClickEvent } from '@/@types/common'
+import { PropType } from 'vue'
 
 export const dimmerProps = {
   /** An active dimmer will dim its parent container. */
@@ -7,7 +7,7 @@ export const dimmerProps = {
 
   /** A dimmer can be formatted to be fixed to the page. */
   page: Boolean,
-};
+}
 
 export const dimmerInnerProps = {
   /** An element type to render as (string or function). */
@@ -55,7 +55,7 @@ export const dimmerInnerProps = {
 
   /** A dimmer can have its content top or bottom aligned. */
   verticalAlign: String as PropType<'bottom' | 'top'>,
-};
+}
 
 export const dimmerDimmableProps = {
   /** An element type to render as (string or function). */
@@ -75,4 +75,4 @@ export const dimmerDimmableProps = {
 
   /** Controls whether or not the dim is displayed. */
   dimmed: Boolean,
-};
+}

@@ -1,5 +1,5 @@
-import { ALL_ICONS_IN_ALL_CONTEXTS, COLORS, SIZES } from '@/@types/sui';
-import { PropType } from 'vue';
+import { ALL_ICONS_IN_ALL_CONTEXTS, COLORS, SIZES } from '@/@types/sui'
+import { PropType } from 'vue'
 
 export const iconProps = {
   /** An element type to render as (string or function). */
@@ -52,7 +52,7 @@ export const iconProps = {
 
   /** Icon can have an aria label. */
   'aria-label': { type: String },
-} as const;
+} as const
 
 export const iconGroupProps = {
   /** An element type to render as (string or function). */
@@ -69,4 +69,4 @@ export const iconGroupProps = {
 
   /** Size of the icon group. */
   size: { type: String as PropType<Exclude<SIZES, 'medium'>> },
-};
+}

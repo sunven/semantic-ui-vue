@@ -37,7 +37,20 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-var': 'error',
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 160,
+        semi: false,
+        tabWidth: 2,
+        useTabs: false,
+        singleQuote: true,
+        trailingComma: 'es5',
+        bracketSpacing: true,
+        arrowParens: 'avoid',
+        proseWrap: 'preserve',
+      },
+    ],
     // 禁止出现console
     'no-console': 'warn',
     // 禁用debugger
@@ -119,7 +132,7 @@ module.exports = {
     // 禁止出现多行空行
     'no-multiple-empty-lines': 'warn',
     // 禁止出现;
-    semi: ['warn', 'never'],
+    // semi: ['warn', 'never'],
     // 强制在块之前使用一致的空格
     'space-before-blocks': 'warn',
     // 强制在 function的左括号之前使用一致的空格

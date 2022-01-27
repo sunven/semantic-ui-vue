@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'
 
 export const htmlInputAttrs = [
   // REACT
@@ -33,7 +33,7 @@ export const htmlInputAttrs = [
   'title',
   'type',
   'value',
-];
+]
 
 export const htmlInputEvents = [
   // EVENTS
@@ -77,11 +77,11 @@ export const htmlInputEvents = [
   'onTouchEnd',
   'onTouchMove',
   'onTouchStart',
-];
+]
 
-export const htmlInputProps = [...htmlInputAttrs, ...htmlInputEvents];
+export const htmlInputProps = [...htmlInputAttrs, ...htmlInputEvents]
 
-export const htmlImageProps = ['alt', 'height', 'src', 'srcSet', 'width', 'loading'];
+export const htmlImageProps = ['alt', 'height', 'src', 'srcSet', 'width', 'loading']
 
 /**
  * Returns an array of objects consisting of: props of html input element and rest.
@@ -92,15 +92,15 @@ export const htmlImageProps = ['alt', 'height', 'src', 'srcSet', 'width', 'loadi
  * @returns {[{}, {}]} An array of objects
  */
 export const partitionHTMLProps = (props: object, options: any = {}) => {
-  const { htmlProps = htmlInputProps, includeAria = true } = options;
-  const inputProps: { [key: string]: any } = {};
-  const rest: { [key: string]: any } = {};
+  const { htmlProps = htmlInputProps, includeAria = true } = options
+  const inputProps: { [key: string]: any } = {}
+  const rest: { [key: string]: any } = {}
   // props.
   _.forEach(props, (val: any, prop: any) => {
-    const possibleAria = includeAria && (/^aria-.*$/.test(prop) || prop === 'role');
-    const target = _.includes(htmlProps, prop) || possibleAria ? inputProps : rest;
-    target[prop] = val;
-  });
+    const possibleAria = includeAria && (/^aria-.*$/.test(prop) || prop === 'role')
+    const target = _.includes(htmlProps, prop) || possibleAria ? inputProps : rest
+    target[prop] = val
+  })
 
-  return [inputProps, rest];
-};
+  return [inputProps, rest]
+}

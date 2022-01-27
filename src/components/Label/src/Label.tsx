@@ -1,11 +1,11 @@
-import { h, defineComponent, computed } from 'vue';
-import clsx from 'clsx';
-import { labelProps } from './Props';
-import { createComp, useKeyOnly, useKeyOrValueAndKey, useValueAndKey } from '@/lib';
-import { SIcon } from '../../Icon';
-import { SImage } from '../../Image';
-import { SLabelDetail } from '../';
-import _ from 'lodash';
+import { h, defineComponent, computed } from 'vue'
+import clsx from 'clsx'
+import { labelProps } from './Props'
+import { createComp, useKeyOnly, useKeyOrValueAndKey, useValueAndKey } from '@/lib'
+import { SIcon } from '../../Icon'
+import { SImage } from '../../Image'
+import { SLabelDetail } from '../'
+import _ from 'lodash'
 
 const Label = defineComponent({
   // components: { SIcon },
@@ -16,7 +16,7 @@ const Label = defineComponent({
         (props.pointing === true && 'pointing') ||
         ((props.pointing === 'left' || props.pointing === 'right') && `${props.pointing} pointing`) ||
         ((props.pointing === 'above' || props.pointing === 'below') && `pointing ${props.pointing}`)
-    );
+    )
 
     const classes = clsx(
       'ui',
@@ -37,36 +37,38 @@ const Label = defineComponent({
       useValueAndKey(props.attached, 'attached'),
       'label',
       props.className
-    );
+    )
 
     const handleClick = (e: MouseEvent) => {
-      const { onClick } = props;
-      if (onClick) onClick(e, props);
-    };
+      const { onClick } = props
+      if (onClick) {
+        onClick(e, props)
+      }
+    }
 
     const handleIconOnClick = (predefinedProps: any) => (e: MouseEvent) => {
-      _.invoke(predefinedProps, 'onClick', e);
-      _.invoke(props, 'onRemove', e, props);
-    };
+      _.invoke(predefinedProps, 'onClick', e)
+      _.invoke(props, 'onRemove', e, props)
+    }
 
     const createIcon = (icon: any) => {
       if (typeof icon === 'string') {
-        return createComp(SIcon, icon, (val: any) => ({ name: val, onClick: handleIconOnClick(icon) }));
+        return createComp(SIcon, icon, (val: any) => ({ name: val, onClick: handleIconOnClick(icon) }))
       }
       if (typeof icon === 'object') {
-        icon.onClick = handleIconOnClick(icon);
-        return createComp(SIcon, icon);
+        icon.onClick = handleIconOnClick(icon)
+        return createComp(SIcon, icon)
       }
-    };
+    }
 
-    return { classes, handleClick, createIcon };
+    return { classes, handleClick, createIcon }
   },
   render() {
-    const { $slots, classes, removeIcon, icon, image, onRemove, detail, createIcon } = this;
+    const { $slots, classes, removeIcon, icon, image, onRemove, detail, createIcon } = this
     if (_.isNil($slots.default)) {
-      return <div class={classes} onClick={this.handleClick}></div>;
+      return <div class={classes} onClick={this.handleClick}></div>
     }
-    const removeIconShorthand = _.isNil(removeIcon) ? 'delete' : removeIcon;
+    const removeIconShorthand = _.isNil(removeIcon) ? 'delete' : removeIcon
 
     return (
       <div class={classes} onClick={this.handleClick}>
@@ -76,8 +78,8 @@ const Label = defineComponent({
         {createComp(SLabelDetail, detail)}
         {onRemove && createIcon(removeIconShorthand)}
       </div>
-    );
+    )
   },
-});
+})
 
-export default Label;
+export default Label

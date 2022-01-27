@@ -1,5 +1,5 @@
-import { FLOATS, SIZES, VERTICAL_ALIGNMENTS } from '@/@types/sui';
-import { PropType } from 'vue';
+import { FLOATS, SIZES, VERTICAL_ALIGNMENTS } from '@/@types/sui'
+import { PropType } from 'vue'
 
 export const imageProps = {
   /** An element type to render as (string or function). */
@@ -67,4 +67,4 @@ export const imageProps = {
 
   /** An image can render wrapped in a `div.ui.image` as alternative HTML markup. */
   wrapped: Boolean,
-};
+}

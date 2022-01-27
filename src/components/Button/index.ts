@@ -1,1 +1,1 @@
-export { default as SButton } from './src/Button.vue';
+export { default as SButton } from './src/Button.vue'

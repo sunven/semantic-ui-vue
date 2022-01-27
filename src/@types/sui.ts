@@ -1,11 +1,11 @@
-export type COLORS = 'red' | 'orange' | 'yellow' | 'olive' | 'green' | 'teal' | 'blue' | 'violet' | 'purple' | 'pink' | 'brown' | 'grey' | 'black';
+export type COLORS = 'red' | 'orange' | 'yellow' | 'olive' | 'green' | 'teal' | 'blue' | 'violet' | 'purple' | 'pink' | 'brown' | 'grey' | 'black'
 
-export type FLOATS = 'left' | 'right';
-export type SIZES = 'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive';
-export type TEXT_ALIGNMENTS = 'left' | 'center' | 'right' | 'justified';
-export type VERTICAL_ALIGNMENTS = 'bottom' | 'middle' | 'top';
+export type FLOATS = 'left' | 'right'
+export type SIZES = 'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive'
+export type TEXT_ALIGNMENTS = 'left' | 'center' | 'right' | 'justified'
+export type VERTICAL_ALIGNMENTS = 'bottom' | 'middle' | 'top'
 
-export type VISIBILITY = 'mobile' | 'tablet' | 'computer' | 'large screen' | 'widescreen';
+export type VISIBILITY = 'mobile' | 'tablet' | 'computer' | 'large screen' | 'widescreen'
 
 export type WIDTHS =
   | '1'
@@ -55,7 +55,7 @@ export type WIDTHS =
   | 'fifteen'
   | '16'
   | 16
-  | 'sixteen';
+  | 'sixteen'
 
 export type DIRECTIONAL_TRANSITIONS =
   | 'browse'
@@ -81,10 +81,10 @@ export type DIRECTIONAL_TRANSITIONS =
   | 'swing down'
   | 'swing left'
   | 'swing right'
-  | 'zoom';
+  | 'zoom'
 
-export type STATIC_TRANSITIONS = 'jiggle' | 'flash' | 'shake' | 'pulse' | 'tada' | 'bounce' | 'glow';
-export type TRANSITIONS = DIRECTIONAL_TRANSITIONS | STATIC_TRANSITIONS;
+export type STATIC_TRANSITIONS = 'jiggle' | 'flash' | 'shake' | 'pulse' | 'tada' | 'bounce' | 'glow'
+export type TRANSITIONS = DIRECTIONAL_TRANSITIONS | STATIC_TRANSITIONS
 
 // Generated from:
 // https://github.com/Semantic-Org/Semantic-UI/blob/master/dist/components/icon.css
@@ -104,7 +104,7 @@ export type ACCESSIBILITY =
   | 'sign language'
   | 'tty'
   | 'universal access'
-  | 'wheelchair';
+  | 'wheelchair'
 export type ARROWS =
   | 'angle double down'
   | 'angle double left'
@@ -213,7 +213,7 @@ export type ARROWS =
   | 'undo alternate'
   | 'upload'
   | 'zoom-in'
-  | 'zoom-out';
+  | 'zoom-out'
 export type AUDIO_VIDEO =
   | 'audio description'
   | 'backward'
@@ -262,7 +262,7 @@ export type AUDIO_VIDEO =
   | 'video'
   | 'volume down'
   | 'volume off'
-  | 'volume up';
+  | 'volume up'
 export type BUSINESS =
   | 'address book'
   | 'address book outline'
@@ -339,8 +339,8 @@ export type BUSINESS =
   | 'tags'
   | 'tasks'
   | 'thumbtack'
-  | 'trademark';
-export type CHESS = 'chess' | 'chess bishop' | 'chess board' | 'chess king' | 'chess knight' | 'chess pawn' | 'chess queen' | 'chess rook' | 'square full';
+  | 'trademark'
+export type CHESS = 'chess' | 'chess bishop' | 'chess board' | 'chess king' | 'chess knight' | 'chess pawn' | 'chess queen' | 'chess rook' | 'square full'
 export type CODE =
   | 'archive'
   | 'barcode'
@@ -376,7 +376,7 @@ export type CODE =
   | 'window minimize'
   | 'window minimize outline'
   | 'window restore'
-  | 'window restore outline';
+  | 'window restore outline'
 export type COMMUNICATION =
   | 'address book'
   | 'address book outline'
@@ -416,7 +416,7 @@ export type COMMUNICATION =
   | 'rss'
   | 'rss square'
   | 'tty'
-  | 'wifi';
+  | 'wifi'
 export type COMPUTERS =
   | 'desktop'
   | 'download'
@@ -438,7 +438,7 @@ export type COMPUTERS =
   | 'tablet'
   | 'tablet alternate'
   | 'tv'
-  | 'upload';
+  | 'upload'
 export type CURRENCY =
   | 'dollar sign'
   | 'euro sign'
@@ -450,7 +450,7 @@ export type CURRENCY =
   | 'rupee sign'
   | 'shekel sign'
   | 'won sign'
-  | 'yen sign';
+  | 'yen sign'
 export type DATE_TIME =
   | 'bell'
   | 'bell outline'
@@ -475,7 +475,7 @@ export type DATE_TIME =
   | 'hourglass end'
   | 'hourglass half'
   | 'hourglass start'
-  | 'stopwatch';
+  | 'stopwatch'
 export type DESIGN =
   | 'adjust'
   | 'clone'
@@ -501,7 +501,7 @@ export type DESIGN =
   | 'pencil alternate'
   | 'save'
   | 'save outline'
-  | 'tint';
+  | 'tint'
 export type EDITORS =
   | 'align center'
   | 'align justify'
@@ -567,7 +567,7 @@ export type EDITORS =
   | 'underline'
   | 'undo'
   | 'undo alternate'
-  | 'unlink';
+  | 'unlink'
 export type FILES =
   | 'archive'
   | 'clone'
@@ -605,7 +605,7 @@ export type FILES =
   | 'save'
   | 'save outline'
   | 'sticky note'
-  | 'sticky note outline';
+  | 'sticky note outline'
 export type GENDERS =
   | 'genderless'
   | 'mars'
@@ -619,7 +619,7 @@ export type GENDERS =
   | 'transgender alternate'
   | 'venus'
   | 'venus double'
-  | 'venus mars';
+  | 'venus mars'
 export type HANDS_GESTURES =
   | 'hand lizard'
   | 'hand lizard outline'
@@ -648,7 +648,7 @@ export type HANDS_GESTURES =
   | 'thumbs down'
   | 'thumbs down outline'
   | 'thumbs up'
-  | 'thumbs up outline';
+  | 'thumbs up outline'
 export type HEALTH =
   | 'ambulance'
   | 'h square'
@@ -662,7 +662,7 @@ export type HEALTH =
   | 'plus square outline'
   | 'stethoscope'
   | 'user md'
-  | 'wheelchair';
+  | 'wheelchair'
 export type IMAGES =
   | 'adjust'
   | 'bolt'
@@ -688,7 +688,7 @@ export type IMAGES =
   | 'images'
   | 'images outline'
   | 'sliders horizontal'
-  | 'tint';
+  | 'tint'
 export type INTERFACES =
   | 'ban'
   | 'barcode'
@@ -859,8 +859,8 @@ export type INTERFACES =
   | 'user outline'
   | 'user circle'
   | 'user circle outline'
-  | 'wifi';
-export type LOGISTICS = 'box' | 'boxes' | 'clipboard check' | 'clipboard list' | 'dolly' | 'dolly flatbed' | 'pallet' | 'shipping fast' | 'truck' | 'warehouse';
+  | 'wifi'
+export type LOGISTICS = 'box' | 'boxes' | 'clipboard check' | 'clipboard list' | 'dolly' | 'dolly flatbed' | 'pallet' | 'shipping fast' | 'truck' | 'warehouse'
 export type MAPS =
   | 'ambulance'
   | 'anchor'
@@ -983,7 +983,7 @@ export type MAPS =
   | 'utensils'
   | 'wheelchair'
   | 'wifi'
-  | 'wrench';
+  | 'wrench'
 export type MEDICAL =
   | 'ambulance'
   | 'band aid'
@@ -1001,7 +1001,7 @@ export type MEDICAL =
   | 'syringe'
   | 'thermometer'
   | 'user md'
-  | 'weight';
+  | 'weight'
 export type OBJECTS =
   | 'ambulance'
   | 'anchor'
@@ -1182,7 +1182,7 @@ export type OBJECTS =
   | 'utensil spoon'
   | 'utensils'
   | 'wheelchair'
-  | 'wrench';
+  | 'wrench'
 export type PAYMENTS_SHOPPING =
   | 'bell'
   | 'bell outline'
@@ -1215,7 +1215,7 @@ export type PAYMENTS_SHOPPING =
   | 'thumbs down outline'
   | 'thumbs up'
   | 'thumbs up outline'
-  | 'trophy';
+  | 'trophy'
 export type SHAPES =
   | 'bookmark'
   | 'bookmark outline'
@@ -1238,7 +1238,7 @@ export type SHAPES =
   | 'square'
   | 'square outline'
   | 'star'
-  | 'star outline';
+  | 'star outline'
 export type SPINNERS =
   | 'asterisk'
   | 'certificate'
@@ -1254,7 +1254,7 @@ export type SPINNERS =
   | 'spinner'
   | 'sun'
   | 'sun outline'
-  | 'sync';
+  | 'sync'
 export type SPORTS =
   | 'baseball ball'
   | 'basketball ball'
@@ -1266,7 +1266,7 @@ export type SPORTS =
   | 'hockey puck'
   | 'quidditch'
   | 'table tennis'
-  | 'volleyball ball';
+  | 'volleyball ball'
 export type STATUS =
   | 'ban'
   | 'battery empty'
@@ -1337,7 +1337,7 @@ export type STATUS =
   | 'toggle off'
   | 'toggle on'
   | 'unlock'
-  | 'unlock alternate';
+  | 'unlock alternate'
 export type USERS_PEOPLE =
   | 'address book'
   | 'address book outline'
@@ -1369,7 +1369,7 @@ export type USERS_PEOPLE =
   | 'user secret'
   | 'user times'
   | 'users'
-  | 'wheelchair';
+  | 'wheelchair'
 export type VEHICLES =
   | 'ambulance'
   | 'bicycle'
@@ -1388,7 +1388,7 @@ export type VEHICLES =
   | 'taxi'
   | 'train'
   | 'truck'
-  | 'wheelchair';
+  | 'wheelchair'
 export type WRITING =
   | 'archive'
   | 'book'
@@ -1423,7 +1423,7 @@ export type WRITING =
   | 'quote right'
   | 'sticky note'
   | 'sticky note outline'
-  | 'thumbtack';
+  | 'thumbtack'
 export type BRANDS =
   | '500px'
   | 'accessible'
@@ -1755,7 +1755,7 @@ export type BRANDS =
   | 'yelp'
   | 'yoast'
   | 'youtube'
-  | 'youtube square';
+  | 'youtube square'
 
 export type ICONS =
   | ACCESSIBILITY
@@ -1788,7 +1788,7 @@ export type ICONS =
   | USERS_PEOPLE
   | VEHICLES
   | WRITING
-  | BRANDS;
+  | BRANDS
 
 export type ICON_ALIASES =
   | 'chess rock'
@@ -2093,13 +2093,13 @@ export type ICON_ALIASES =
   | 'ticket'
   | 'times rectangle'
   | 'write'
-  | 'youtube play';
+  | 'youtube play'
 
-export type ICONS_AND_ALIASES = ICONS | ICON_ALIASES;
+export type ICONS_AND_ALIASES = ICONS | ICON_ALIASES
 
 // Some icon names are not part of icons.css.
 // These are only valid as children of other components.
 // Their CSS rules are defined by a specific component's CSS.
 // We don't want to show name warnings for those usages so we add them as valid names here.
-export type COMPONENT_CONTEXT_SPECIFIC_ICONS = 'left dropdown'; // nested dropdown menu direction icon
-export type ALL_ICONS_IN_ALL_CONTEXTS = ICONS_AND_ALIASES | COMPONENT_CONTEXT_SPECIFIC_ICONS;
+export type COMPONENT_CONTEXT_SPECIFIC_ICONS = 'left dropdown' // nested dropdown menu direction icon
+export type ALL_ICONS_IN_ALL_CONTEXTS = ICONS_AND_ALIASES | COMPONENT_CONTEXT_SPECIFIC_ICONS

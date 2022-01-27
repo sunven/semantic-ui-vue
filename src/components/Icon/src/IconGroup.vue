@@ -1,19 +1,17 @@
 <template>
-  <i v-bind="rest" :class="classes">
+  <i :class="classes">
     <slot></slot>
   </i>
 </template>
 
 <script lang="ts" setup>
-import { getUnhandledProps } from '@/lib';
-import { iconGroupProps } from './Props';
-import clsx from 'clsx';
+import { iconGroupProps } from './Props'
+import clsx from 'clsx'
+import { computed } from 'vue'
 
-const props = defineProps(iconGroupProps);
+const props = defineProps(iconGroupProps)
 
-const { className, size } = props;
-const classes = clsx(size, 'icons', className);
-const rest = getUnhandledProps(iconGroupProps, props);
+const classes = computed(() => clsx(props.size, 'icons', props.className))
 </script>
 
 <style lang="scss" scoped></style>
