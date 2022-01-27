@@ -11,8 +11,8 @@
 
 /* @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin'); */
 
-@import url('./Lato.css')
-    /*!
+@import url('./Lato.css');
+/*!
  * # Semantic UI 2.4.2 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
@@ -21,9 +21,10 @@
  * http://opensource.org/licenses/MIT
  *
  */
-    /*******************************
+/*******************************
              Reset
-*******************************/ /* Border-Box */ *,
+*******************************/ /* Border-Box */
+*,
   *: before, *: after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
