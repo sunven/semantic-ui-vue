@@ -1,98 +1,75 @@
-import { h, defineComponent, DefineComponent } from 'vue';
+import { h, defineComponent, computed } from 'vue';
 import clsx from 'clsx';
 import { labelProps } from './Props';
-import { useKeyOnly, useKeyOrValueAndKey, useValueAndKey, getUnhandledProps, isNil } from '@/lib';
+import { createComp, useKeyOnly, useKeyOrValueAndKey, useValueAndKey } from '@/lib';
 import { SIcon } from '../../Icon';
 import { SImage } from '../../Image';
+import _ from 'lodash';
 // const props = defineProps(labelProps);
 
 const Label = defineComponent({
   components: { SIcon },
   props: labelProps,
   setup(props) {
-    const {
-      active,
-      attached,
-      basic,
-      children,
-      circular,
-      className,
-      color,
-      content,
-      corner,
-      detail,
-      empty,
-      floating,
-      horizontal,
-      icon,
-      image,
-      onRemove,
-      pointing,
-      prompt,
-      removeIcon,
-      ribbon,
-      size,
-      tag,
-    } = props;
-    const pointingClass =
-      (pointing === true && 'pointing') ||
-      ((pointing === 'left' || pointing === 'right') && `${pointing} pointing`) ||
-      ((pointing === 'above' || pointing === 'below') && `pointing ${pointing}`);
+    const pointingClass = computed(
+      () =>
+        (props.pointing === true && 'pointing') ||
+        ((props.pointing === 'left' || props.pointing === 'right') && `${props.pointing} pointing`) ||
+        ((props.pointing === 'above' || props.pointing === 'below') && `pointing ${props.pointing}`)
+    );
 
     const classes = clsx(
       'ui',
-      color,
+      props.color,
       pointingClass,
-      size,
-      useKeyOnly(active, 'active'),
-      useKeyOnly(basic, 'basic'),
-      useKeyOnly(circular, 'circular'),
-      useKeyOnly(empty, 'empty'),
-      useKeyOnly(floating, 'floating'),
-      useKeyOnly(horizontal, 'horizontal'),
-      useKeyOnly(image === true, 'image'),
-      useKeyOnly(prompt, 'prompt'),
-      useKeyOnly(tag, 'tag'),
-      useKeyOrValueAndKey(corner, 'corner'),
-      useKeyOrValueAndKey(ribbon, 'ribbon'),
-      useValueAndKey(attached, 'attached'),
+      props.size,
+      useKeyOnly(props.active, 'active'),
+      useKeyOnly(props.basic, 'basic'),
+      useKeyOnly(props.circular, 'circular'),
+      useKeyOnly(props.empty, 'empty'),
+      useKeyOnly(props.floating, 'floating'),
+      useKeyOnly(props.horizontal, 'horizontal'),
+      useKeyOnly(props.image === true, 'image'),
+      useKeyOnly(props.prompt, 'prompt'),
+      useKeyOnly(props.tag, 'tag'),
+      useKeyOrValueAndKey(props.corner, 'corner'),
+      useKeyOrValueAndKey(props.ribbon, 'ribbon'),
+      useValueAndKey(props.attached, 'attached'),
       'label',
-      className
+      props.className
     );
-    const rest = getUnhandledProps(labelProps, props);
 
     const handleClick = (e: MouseEvent) => {
       const { onClick } = props;
       if (onClick) onClick(e, props);
     };
 
-    const handleIconOverrides = predefinedProps => ({
-      onClick: e => {
+    const handleIconOverrides = (predefinedProps: any) => ({
+      onClick: (e: MouseEvent) => {
         _.invoke(predefinedProps, 'onClick', e);
-        _.invoke(this.props, 'onRemove', e, this.props);
+        _.invoke(props, 'onRemove', e, props);
       },
     });
-    return { classes, handleClick, rest };
+    return { classes, handleClick };
   },
   render() {
-    const { $slots, classes, rest, removeIcon, icon,image } = this;
-    if (!isNil($slots.default)) {
-      return <div class={classes} {...rest} onClick={this.handleClick}></div>;
+    const { $slots, classes, removeIcon, icon, image, onRemove } = this;
+    if (_.isNil($slots.default)) {
+      return <div class={classes} onClick={this.handleClick}></div>;
     }
-    const removeIconShorthand = isNil(removeIcon) ? 'delete' : removeIcon;
+    const removeIconShorthand = _.isNil(removeIcon) ? 'delete' : removeIcon;
 
     return (
-      <div class={classes} onClick={this.handleClick} {...rest}>
-        {h(SIcon, typeof icon === 'string' ? { name: icon } : icon)}
-        {h(SImage, typeof image === 'string' ? { src: image } : image)}
-        {/* {typeof image !== 'boolean' && Image.create(image, { autoGenerateKey: false })} */}
+      <div class={classes} onClick={this.handleClick}>
+        {createComp(SIcon, icon, (val: any) => ({ name: val }))}
+        {createComp(SImage, image, (val: any) => ({ src: val }))}
         <slot></slot>
-        {LabelDetail.create(detail, { autoGenerateKey: false })}
+        {/* {LabelDetail.create(detail, { autoGenerateKey: false })} */}
         {onRemove &&
           Icon.create(removeIconShorthand, {
             autoGenerateKey: false,
             overrideProps: this.handleIconOverrides,
-          })} */}
+          })}
       </div>
     );
   },

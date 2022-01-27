@@ -1,39 +1,32 @@
 <script setup lang="ts">
-import { doesNodeContainClick, getUnhandledProps, useKeyOnly, useVerticalAlignProp } from '@/lib';
+import { doesNodeContainClick, useKeyOnly, useVerticalAlignProp } from '@/lib';
 import clsx from 'clsx';
 import _ from 'lodash';
-import { onMounted, ref, watch, useAttrs } from 'vue';
+import { onMounted, ref, watch, computed } from 'vue';
 import { dimmerInnerProps } from './Props';
 
 const props = defineProps(dimmerInnerProps);
+
 const containerRef = ref<HTMLElement>();
 const contentRef = ref<HTMLElement>();
 
-let { active, className, disabled, inverted, page, simple, verticalAlign, onClickOutside } = props;
 onMounted(() => {
-  toggleStyles(active);
-  console.log('onClickOutside', onClickOutside);
-  onClickOutside('a');
-  // $emit('onClickOutside', an);
+  toggleStyles(props.active);
 });
 
 watch(
-  () => active,
+  () => props.active,
   (newValue, oldValue) => {
-    console.log(1);
-
     if (oldValue !== newValue) toggleStyles(newValue);
   }
 );
 
 const handleClick = (e: MouseEvent) => {
   const dom = contentRef.value;
-
   _.invoke(props, 'onClick', e, props);
   if (dom && dom !== e.target && doesNodeContainClick(dom, e)) {
     return;
   }
-
   _.invoke(props, 'onClickOutside', e, props);
 };
 
@@ -47,21 +40,22 @@ const toggleStyles = (active: boolean) => {
   }
 };
 
-const classes = clsx(
-  'ui',
-  useKeyOnly(active, 'active transition visible'),
-  useKeyOnly(disabled, 'disabled'),
-  useKeyOnly(inverted, 'inverted'),
-  useKeyOnly(page, 'page'),
-  useKeyOnly(simple, 'simple'),
-  useVerticalAlignProp(verticalAlign),
-  'dimmer',
-  className
-);
-const rest = getUnhandledProps(dimmerInnerProps, props);
+const classes = computed(() => {
+  return clsx(
+    'ui',
+    useKeyOnly(props.active, 'active transition visible'),
+    useKeyOnly(props.disabled, 'disabled'),
+    useKeyOnly(props.inverted, 'inverted'),
+    useKeyOnly(props.page, 'page'),
+    useKeyOnly(props.simple, 'simple'),
+    useVerticalAlignProp(props.verticalAlign),
+    'dimmer',
+    props.className
+  );
+});
 </script>
 <template>
-  <div ref="containerRef" v-bind="rest" :class="classes" @click="handleClick">
+  <div ref="containerRef" :class="classes" @click="handleClick">
     <div class="content" ref="contentRef"><slot></slot></div>
   </div>
 </template>

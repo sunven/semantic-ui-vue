@@ -1,16 +1,15 @@
 <script lang="ts" setup>
-import { getUnhandledProps, useKeyOnly } from '@/lib';
+import { useKeyOnly } from '@/lib';
 import clsx from 'clsx';
 import { dimmerDimmableProps } from './Props';
+import { computed } from 'vue';
 
 const props = defineProps(dimmerDimmableProps);
-const { blurring, className, dimmed } = props;
 
-const classes = clsx(useKeyOnly(blurring, 'blurring'), useKeyOnly(dimmed, 'dimmed'), 'dimmable', className);
-const rest = getUnhandledProps(dimmerDimmableProps, props);
+const classes = computed(() => clsx(useKeyOnly(props.blurring, 'blurring'), useKeyOnly(props.dimmed, 'dimmed'), 'dimmable', props.className));
 </script>
 <template>
-  <div v-bind="rest" :class="classes">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>

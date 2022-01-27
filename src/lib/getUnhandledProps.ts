@@ -8,7 +8,6 @@
 const getUnhandledProps = (initProps: any, props: any) => {
   // Note that `handledProps` are generated automatically during build with `babel-plugin-transform-react-handled-props`
   const handledProps = Object.keys(initProps);
-
   return Object.keys(props).reduce<{ [key: string]: any }>((acc, prop) => {
     if (prop === 'childKey') return acc;
     if (handledProps.indexOf(prop) === -1) acc[prop] = props[prop];

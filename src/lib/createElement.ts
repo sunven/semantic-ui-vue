@@ -7,7 +7,10 @@ export function createComp(Comp: DefineComponent<any, any, any>, val: any, map?:
     return h(Comp);
   }
   if (typeof val === 'string') {
-    return h(Comp, map(val));
+    if (map) {
+      return h(Comp, map(val));
+    }
+    return h(Comp, null, val);
   }
   if (typeof val === 'object') {
     return h(Comp, val);
