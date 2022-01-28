@@ -1,4 +1,4 @@
-import { h, Component, DefineComponent } from 'vue'
+import { h } from 'vue'
 export function createComp<T>(Comp: T, val: any, map?: (val: any) => object) {
   if (!val) {
     return

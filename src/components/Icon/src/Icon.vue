@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { isNil, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, getUnhandledProps } from '@/lib'
+import { isNil, useKeyOnly, useKeyOrValueAndKey, useValueAndKey } from '@/lib'
 import { iconProps } from './Props'
 import clsx from 'clsx'
 import { computed } from 'vue'
@@ -23,7 +23,6 @@ const getIconAriaOptions = () => {
   return ariaOptions
 }
 
-const rest = getUnhandledProps(iconProps, props)
 const ariaOptions = getIconAriaOptions()
 
 const classes = computed(() =>
@@ -58,7 +57,7 @@ const handleClick = (e: MouseEvent) => {
 </script>
 
 <template>
-  <i v-bind="{ ...rest, ...ariaOptions }" :class="classes" @click="handleClick"></i>
+  <i v-bind="ariaOptions" :class="classes" @click="handleClick"></i>
 </template>
 
 <style lang="scss" scoped></style>

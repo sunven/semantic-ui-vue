@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useKeyOnly, useKeyOrValueAndKey, useTextAlignProp, useValueAndKey, getUnhandledProps } from '@/lib'
+import { useKeyOnly, useKeyOrValueAndKey, useTextAlignProp, useValueAndKey } from '@/lib'
 import clsx from 'clsx'
 import { computed } from 'vue'
 import { segmentProps } from './Props'

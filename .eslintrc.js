@@ -37,22 +37,9 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-var': 'error',
-    'prettier/prettier': [
-      'error',
-      {
-        printWidth: 160,
-        semi: false,
-        tabWidth: 2,
-        useTabs: false,
-        singleQuote: true,
-        trailingComma: 'es5',
-        bracketSpacing: true,
-        arrowParens: 'avoid',
-        proseWrap: 'preserve',
-      },
-    ],
+    'prettier/prettier': 'error',
     // 禁止出现console
-    'no-console': 'warn',
+    // 'no-console': 'warn',
     // 禁用debugger
     'no-debugger': 'warn',
     // 禁止出现重复的 case 标签
@@ -149,7 +136,6 @@ module.exports = {
     'switch-colon-spacing': 'warn',
     // 强制箭头函数的箭头前后使用一致的空格
     'arrow-spacing': 'warn',
-    'no-var': 'warn',
     'prefer-const': 'warn',
     'prefer-rest-params': 'warn',
     'no-useless-escape': 'warn',
@@ -159,6 +145,8 @@ module.exports = {
     'no-extra-boolean-cast': 'warn',
     'no-case-declarations': 'warn',
     'no-async-promise-executor': 'warn',
+    //
+    // 'import/named': 'error',
   },
   globals: {
     defineProps: 'readonly',
@@ -166,4 +154,4 @@ module.exports = {
     defineExpose: 'readonly',
     withDefaults: 'readonly',
   },
-};
+}

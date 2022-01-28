@@ -4,7 +4,7 @@ import { h, defineComponent } from 'vue'
 
 export default defineComponent({
   props: dimmerProps,
-  setup(props) {},
+  // setup(props) {},
   render() {
     const { $props, page, $slots, $attrs } = this
 
@@ -14,7 +14,7 @@ export default defineComponent({
       </SDimmerInner>
     )
     if (page) {
-      return <teleport to="body">{inner}</teleport>
+      return <teleport to='body'>{inner}</teleport>
     }
     return inner
   },
